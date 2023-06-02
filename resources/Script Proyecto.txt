@@ -1,0 +1,81 @@
+CREATE DATABASE ejemploproyecto;
+USE ejemploproyecto;
+
+CREATE TABLE usuarios(
+id_usuario INT AUTO_INCREMENT NOT NULL,
+nombre_usuario VARCHAR(50) NOT NULL,
+correo_electronico  VARCHAR(50) NOT NULL,
+contrasena VARCHAR(255) NOT NULL,
+PRIMARY KEY (id_usuario)
+);
+
+CREATE TABLE clanes(
+id_clan INT AUTO_INCREMENT NOT NULL,
+nombre_clan VARCHAR(50) NOT NULL,
+descripcion VARCHAR(255) NOT NULL,
+PRIMARY KEY (id_clan)
+);
+
+CREATE TABLE miembro_del_clan(
+id_miembroclan INT AUTO_INCREMENT NOT NULL,
+id_usuario INT NOT NULL,
+id_clan INT NOT NULL,
+PRIMARY KEY (id_miembroclan),
+FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
+FOREIGN KEY (id_clan) REFERENCES clanes(id_clan)
+); 
+
+CREATE TABLE preguntas(
+id_pregunta INT AUTO_INCREMENT NOT NULL,
+texto_pregunta VARCHAR(255) NOT NULL,
+opcion_1 VARCHAR(255) NOT NULL,
+opcion_2 VARCHAR(255) NOT NULL,
+opcion_3 VARCHAR(255) NOT NULL,
+opcion_4 VARCHAR(255) NOT NULL,
+respuesta_correcta VARCHAR(255) NOT NULL,
+dificultad INT NOT NULL,
+categoria VARCHAR(50),
+PRIMARY KEY (id_pregunta)
+);
+
+CREATE TABLE puntuaciones(
+id_puntuacion INT AUTO_INCREMENT NOT NULL,
+cantidad_puntos INT NOT NULL,
+id_usuario INT NOT NULL,
+PRIMARY KEY(id_puntuacion),
+FOREIGN KEY (id_usuario) REFERENCES usuarios (id_usuario)
+);
+
+CREATE TABLE logros(
+id_logro INT AUTO_INCREMENT NOT NULL,
+nombre_logro VARCHAR(50),
+descripcion_logro VARCHAR(255),
+PRIMARY KEY (id_logro)
+);
+
+CREATE TABLE logros_obtenidos(
+id_logroobtenido INT AUTO_INCREMENT NOT NULL,
+id_logro INT NOT NULL,
+id_usuario INT NOT NULL,
+PRIMARY KEY (id_logroobtenido),
+FOREIGN KEY (id_logro) REFERENCES logros (id_logro),
+FOREIGN KEY (id_usuario) REFERENCES usuarios (id_usuario)
+);
+
+CREATE TABLE niveles(
+id_nivel INT AUTO_INCREMENT NOT NULL,
+dificultad INT NOT NULL,
+categoria INT NOT NULL,
+id_pregunta INT NOT NULL,
+PRIMARY KEY (id_nivel),
+FOREIGN KEY (id_pregunta) REFERENCES preguntas (id_pregunta)
+);
+
+CREATE TABLE historia_del_juego(
+id_historialjuego INT AUTO_INCREMENT NOT NULL,
+id_usuario INT NOT NULL,
+id_pregunta INT NOT NULL,
+PRIMARY KEY (id_historialjuego),
+FOREIGN KEY (id_usuario) REFERENCES usuarios (id_usuario),
+FOREIGN KEY (id_pregunta) REFERENCES preguntas (id_pregunta)
+);
