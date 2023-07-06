@@ -1,106 +1,195 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
-    <link rel="stylesheet" href="css/estilo.css">
-    <script src="https://kit.fontawesome.com/7791b6ed55.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <style>
+    /* Estilos personalizados */
+    body {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .video-fondo {
+      grid-column: 1 / -1;
+      grid-row: 1 / 4;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .logo-header img {
+      width: 100px;
+    }
+
+    .boton-play a {
+      margin-left: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .box-profile {
+      display: grid;
+      grid-column: 1;
+      grid-row: 2;
+      grid-template-rows: auto 1fr auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      margin: 20px;
+    }
+
+    .config-icon a img {
+      width: 20px;
+    }
+
+    .aside {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .aside-image {
+      width: 200px;
+      height: auto;
+    }
+
+    .section {
+      margin-bottom: 10px;
+    }
+
+    .social {
+      grid-column: 2;
+      grid-row: 2;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      margin: 20px;
+    }
+
+    .pie-pagina {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      margin-top: auto;
+    }
+
+    .grupo-1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .box-footer {
+      flex-basis: 33%;
+    }
+
+    .red-social a {
+      margin-right: 10px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .grupo-2 {
+      text-align: center;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/7791b6ed55.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+  <video autoplay muted loop class="video-fondo">
+    <source src="mp4/Fondo mp4.mp4" type="video/mp4">
+  </video>
 
-    <video autoplay muted loop class="video-fondo">
-        <source src="mp4/Fondo mp4.mp4" type="video/mp4">
-    </video>
-        
-        <!-- Header -->
-            <header class="header">
-
-                <!-- logo -->
-                <div class="logo-header">
-                        <a href="home.html">
-                            <img src="img/white_logo_game.png" alt="logo-header">
-                        </a>
-                        
-                </div>
-
-                <div class="boton-play">
-                    <a href="clantree.html" class="fa-regular fa-chess-rook"> Mi Clan</a>
-                    <a href="index.html" class="fa-solid fa-door-open"> cerrar Sesion</a>                      
-                </div>
-                
-                
-
-            </header>
-
-
-
-    <!-- Box -->
-	<div class="box-profile">
-
-        <!-- Acceso a Configuracion -->
-        <div class="config-icon">
-            <a href="settings.html">
-                <img src="img/icon-config.png">
-            </a>
-        </div>
-
-        <!-- Logo -->
-        <div class="logo-user">
-		    <img src="img/Logo_user.png" alt="Foto de Perfil">
-        </div>
-        <!-- Texto -->
-		<h1>Nombre de Usuario</h1>
-        <div class="info">
-		    <p>Colegio:</p>
-		    <p>Curso:</p>
-		    <p>Descripción:</p>
-        </div>
-	</div>
-
-    <!-- Redes Sociales -->
-    <div class="social">
-
-
-
-
-
+  <header class="header">
+    <div class="logo-header">
+      <a href="home.html">
+        <img src="img/white_logo_game.png" alt="logo-header">
+      </a>
     </div>
-</body>
 
-<body>
+    <div class="boton-play">
+      <a href="clantree.html" class="fa-regular fa-chess-rook"> Mi Clan</a>
+      <a href="index.html" class="fa-solid fa-door-open"> cerrar Sesion</a>
+    </div>
+  </header>
 
-    <!-- Footer -->
-    <footer class="pie-pagina">
-        <div class="grupo-1">
-            <div class="box-footer">
-                <figure>
-                    <a href="https://www.upla.cl/portada/">
-                        <img src="img/logoupla.png" alt="logo-footer">
-                    </a>
-                </figure>
-            </div>
-            <div class="box-footer">
-                    <h2>Sobre Nosotros</h2>
-                    <p>Acerca del juego</p>
-                    <p>Texto</p>
-            </div>
-            <div class="box-footer">
-                <h2>Siguenos</h2>
-                <div class="red-social">
-                    <a href="https://www.facebook.com/uplacomunica" class="fa fa-facebook"></a>
-                    <a href="https://www.instagram.com/upla_comunica/?hl=es" class="fa fa-instagram"></a>
-                    <a href="https://twitter.com/upla_comunica?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="fa fa-twitter"></a>
-                    <a href="https://www.youtube.com/watch?v=1YDfEqp53yo" class="fa fa-youtube"></a>
-                </div>
-            </div>
+  <div class="box-profile">
+    <div class="config-icon">
+      <a href="settings.html">
+        <img src="img/icon-config.png">
+      </a>
+    </div>
+
+    <div>
+      <div class="aside">
+        <img src="ruta_de_la_imagen.jpg" alt="Imagen aside" class="aside-image">
+        <p class="aside-content">Contenido del aside</p>
+      </div>
+
+      <div class="section">a</div>
+      <div class="section">b</div>
+      <div class="section">c</div>
+      <div class="section">d</div>
+      <div class="section">e</div>
+    </div>
+  </div>
+
+  <div class="social">
+    <!-- Contenido de las redes sociales -->
+  </div>
+
+  <footer class="pie-pagina">
+    <div class="grupo-1">
+      <div class="box-footer">
+        <figure>
+          <a href="https://www.upla.cl/portada/">
+            <img src="img/logoupla.png" alt="logo-footer">
+          </a>
+        </figure>
+      </div>
+      <div class="box-footer">
+        <h2>Sobre Nosotros</h2>
+        <p>Acerca del juego</p>
+        <p>Texto</p>
+      </div>
+      <div class="box-footer">
+        <h2>Síguenos</h2>
+        <div class="red-social">
+          <a href="https://www.facebook.com/uplacomunica" class="fa fa-facebook"></a>
+          <a href="https://www.instagram.com/upla_comunica/?hl=es" class="fa fa-instagram"></a>
+          <a href="https://twitter.com/upla_comunica?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="fa fa-twitter"></a>
+          <a href="https://www.youtube.com/watch?v=1YDfEqp53yo" class="fa fa-youtube"></a>
         </div>
-        <div class="grupo-2">
-                <small>&copy; 2023 <b>Univers</b> Todos los Derechos Reservados.</small>
-        </div>
-
-    </footer>
+      </div>
+    </div>
+    <div class="grupo-2">
+      <small>&copy; 2023 <b>Univers</b> Todos los Derechos Reservados.</small>
+    </div>
+  </footer>
 </body>
 
 </html>
